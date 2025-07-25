@@ -1,0 +1,45 @@
+.index_v5 .clv_btn:hover {
+    color: #fff;
+}
+.org_left_service,.index_v5 .clv_right_header .clv_menu .cart_nav ul > li > a.cart_toggle > span,
+.dairy_product_inner .dairy_product_block:before,
+.index_v3 .gallery_slider .swiper-pagination-bullet.swiper-pagination-bullet-active,
+.clv_btn::before,
+.index_v5 .clv_btn::before,
+.index_v5 .clv_btn::after,
+.org_testimonial_slide > .test_social,
+.pricing_section .pricing_block > a:hover,
+.index_v6 .footer_post_section::-webkit-scrollbar-thumb,
+.index_v6 .agri_social_links > li > a:hover {
+    background-color: #07adb1;
+}
+.index_v5 .clv_right_header .clv_menu .cart_nav > ul > li > a,
+.org_right_service .service_block:hover h3,.org_about_contents h5,
+.dairy_product_inner .dairy_product_block .product_content a,
+.index_v6 .footer_post_section .footer_post_slide > .blog_links > a,
+.index_v6 .clv_footer_wrapper .footer_block .useful_links > li > a:hover,
+.index_v5 .clv_right_header .clv_menu .clv_menu_nav > ul > li > ul > li > a:hover {
+    color: #07adb1;
+}
+.index_v3 .gallery_slider .swiper-pagination-bullet,
+.clv_btn::before,
+.index_v5 .clv_btn::before,
+.index_v5 .clv_btn::after,
+.index_v6 .agri_social_links > li > a:hover {
+    border-color: #07adb1;
+}
+.dairy_product_inner .dairy_product_block:hover {
+    box-shadow: 0px 0px 20px 1px rgb(7 173 177 / 30%);
+}
+.index_v3 .gallery_slide .gallery_grid .gallery_grid_item .gallery_image .gallery_overlay {
+    background-color: rgb(7 173 177 / 80%);
+}
+.index_v6 .partner_slider .partner_slide .partner_image:hover svg path {
+    fill: #07adb1;
+}
+.index_v6 .clv_partner_wrapper .partner_slider .slider_arrow:hover {
+    background-color: #fff;
+}
+.index_v5 .clv_right_header .clv_menu .clv_menu_nav > ul > li > ul {
+    border-bottom-color: #07adb1;
+}
