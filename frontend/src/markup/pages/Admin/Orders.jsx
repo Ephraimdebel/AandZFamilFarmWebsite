@@ -39,6 +39,8 @@ import {
 
 import { Alert, AlertDescription } from "../../components/admin/ui/alert"
 import { protectedAxios } from "../../../../utils/axios"
+import { AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogCancel, AlertDialogAction} from "../../components/admin/ui/alert-dialog"
+import { AlertDialog } from "../../components/admin/ui/alert-dialog"
 
 function Orders() {
   const [orders, setOrders] = useState([])
@@ -48,6 +50,8 @@ function Orders() {
   const [statusFilter, setStatusFilter] = useState("all")
   const [animalFilter, setAnimalFilter] = useState("all")
   const [paymentFilter, setPaymentFilter] = useState("all")
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [orderTodelete, setOrderTodelete] = useState(null)
   const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
 
   // Fetch orders from backend
@@ -101,22 +105,25 @@ function Orders() {
     }
   }
 
-  const handleDeleteOrder = async (orderId)=>{
+  const handleDeleteOrder = async ()=>{
     try{
-      await protectedAxios.delete(`/order/${orderId}`)
+      await protectedAxios.delete(`/order/${orderTodelete?.id}`)
   
 
       const response = await protectedAxios.get('/orders')
       toast.success("order deleted succesuly")
-
-      setOrders(response?.data)
+      
+      setOrders(response?.data?.orders)
     }catch(error){
       toast.error("unable to delete order")
       console.log(error)
+    }finally{
+      setOrderTodelete(null)
+      setIsDeleteDialogOpen(false)
     }
   }
 
-  const filteredOrders = orders.filter((order) => {
+  const filteredOrders = orders?.filter((order) => {
     const matchesSearch =
       order.customer?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       // order.id?.includes(searchTerm.toLowerCase()) ||
@@ -469,7 +476,10 @@ function Orders() {
                         <Button variant="ghost" size="sm">
                           <Edit className="h-4 w-4" />
                         </Button> */}
-                        <Button variant="ghost" size="sm" onClick={() => handleDeleteOrder(order.id)}>
+                        <Button variant="ghost" size="sm" onClick={() => {
+                          setOrderTodelete(order)
+                          setIsDeleteDialogOpen(true)
+                        }}>
                           <Trash2 className="h-4 w-4" />
                         </Button>
                       </div>
@@ -505,6 +515,32 @@ function Orders() {
           </div>
         </CardContent>
       </Card>
+      <AlertDialog
+        open={isDeleteDialogOpen}
+        onOpenChange={setIsDeleteDialogOpen}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently delete the
+              category "{orderTodelete?.title}" and may affect associated
+              courses.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel onClick={() => setOrderTodelete(null)}>
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleDeleteOrder}
+              className="bg-red-600 hover:bg-red-700"
+            >
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   )
 }

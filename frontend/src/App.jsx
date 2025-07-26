@@ -15,6 +15,7 @@ import SignupPage from "./markup/pages/Admin/SignupPage.jsx"
 import OrderPage from "./markup/pages/OrderPage.jsx"
 import {OrderProvider} from "./contexts/OrderContext.jsx"
 import Home from "./markup/pages/Home.jsx"
+import { Toaster } from 'sonner';
 
 
 // import './assets/template_asset/css/bootstrap.min.css'
@@ -119,6 +120,7 @@ function App() {
           </div>
         </OrderProvider>
       </AuthProvider>
+      <Toaster position="top-right" richColors />
     </Router>
   )
 }
