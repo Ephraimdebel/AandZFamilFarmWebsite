@@ -7,7 +7,7 @@ export async function createOrder(data) {
     const response = await axios.post(`${API_URL}`,data);
     return response.data;
   } catch (error) {
-    return { success: false, error: error.response?.data?.message || "create order failed" };
+    throw { success: false, error: error.response?.data?.message || "create order failed" };
   }
 }
 
@@ -16,6 +16,6 @@ export async function getOrder(data) {
     const response = await axios.get(`${API_URL}`,data);
     return response.data;
   } catch (error) {
-    return { success: false, error: error.response?.data?.message || "get order failed" };
+    throw { success: false, error: error.response?.data?.message || "get order failed" };
   }
 }
