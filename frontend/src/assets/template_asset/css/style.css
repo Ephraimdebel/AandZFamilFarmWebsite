@@ -5048,6 +5048,7 @@ ul{
 /*Garden Team End*/
 /*Garden Pricing Table Start*/
 .garden_pricing_wrapper {
+	background-color: #f9fcf6;
 	padding-top: 90px;
 }
 .pricing_section{
