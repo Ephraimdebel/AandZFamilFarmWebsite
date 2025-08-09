@@ -91,30 +91,7 @@ export default function OrderPage() {
   };
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-gray-50">
-      {/* Header */}
-      {/* <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <div className="bg-[#07ADB1] rounded-full p-2 mr-3">
-                <Leaf className="h-6 w-6 text-white" />
-              </div>
-              <h1 className="text-xl font-bold text-[#07ADB1]">A&Z Family Farm</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <span className="text-sm text-gray-600">Welcome, {user?.name}</span>
-              <Button
-                variant="outline"
-                onClick={logout}
-                className="border-[#07ADB1] text-[#07ADB1] hover:bg-[#07ADB1] hover:text-white bg-transparent"
-              >
-                <LogOut className="h-4 w-4 mr-2" />
-                Logout
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header> */}
+     
 
     <Navbar scrollToSection={scrollToSection} /> 
       <div className="max-w-4xl mx-auto p-6">

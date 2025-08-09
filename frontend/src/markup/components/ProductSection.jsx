@@ -78,8 +78,7 @@ const ProductSection = (props) => (
               <img src={underline} alt="underline" />
             </div>
             <p>
-              Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et
-              dole magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.
+               We take orders for your chosen date, provide a clean space for slaughtering and cutting, offer an area for easy skin peeling, and guarantee quality service.
             </p>
           </div>
         </div>

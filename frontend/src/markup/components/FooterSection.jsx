@@ -38,6 +38,7 @@ const FooterSection = () => {
             </div>
             <p className="mb-2"><span>📍</span> 16487 Fredrick RD Woodbine MD 21797</p>
             <p className="mb-2"><span>📞</span> +1 (240) 441 3923 </p>
+            <p className="mb-2"><span>📞</span> +1 (202) 262 8200 </p>
             <p className="mb-4"><span>📧</span> cultivation@example.com</p>
             <ul className="agri_social_links flex space-x-4">
               <li><a href="#"><FaFacebookF /></a></li>

@@ -7,14 +7,13 @@ async function getAllUsers() {
       u.id, 
       u.fullname, 
       u.email, 
+      u.phone,
       u.role, 
       u.last_login, 
-      u.created_at, 
-      COUNT(o.id) AS total_orders
+      u.created_at
     FROM user u
-    LEFT JOIN orders o ON u.id = o.user_id
-    GROUP BY u.id, u.fullname, u.email, u.role, u.last_login, u.created_at
-    ORDER BY u.id DESC
+    GROUP BY u.id, u.fullname, u.email, u.phone, u.role, u.last_login, u.created_at
+    ORDER BY u.id DESC;
   `;
   return await query(sql);
 }

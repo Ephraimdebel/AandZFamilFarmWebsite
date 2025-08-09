@@ -42,8 +42,7 @@ const CounterSection = () => {
                 <img src={im1} alt="image" />
               </div>
               <p>
-                Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et
-                dole magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.
+               With over 50 satisfied clients and more than 100 healthy animals, we bring trusted experience and quality service to every order.
               </p>
             </div>
           </div>

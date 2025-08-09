@@ -57,6 +57,7 @@ export default function PaymentInstructionsPage() {
   const animals = { lamb: "Lamb", goat: "Goat" }
   const sizes = { medium: "Medium (25-35 lbs)", large: "Large (35-50 lbs)" }
   const sellerPhone = "(240) 441-3923"
+  const sellerPhone2 = "(202) 262-8200"
   const zelleEmail = "+1 (240) 441 3923"
 
   const handleNewOrder = () => {
@@ -221,6 +222,19 @@ export default function PaymentInstructionsPage() {
                       variant="outline"
                       size="sm"
                       onClick={() => copyToClipboard(sellerPhone)}
+                      className="border-[#07ADB1] text-[#07ADB1] hover:bg-[#07ADB1] hover:text-white"
+                    >
+                      <Copy className="h-4 w-4" />
+                    </Button>
+                  </div>
+                  <div className="flex items-center justify-center space-x-3 mb-3">
+                    <a href={`tel:${sellerPhone2}`} className="text-2xl font-bold text-[#07ADB1] hover:underline">
+                      {sellerPhone2}
+                    </a>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => copyToClipboard(sellerPhone2)}
                       className="border-[#07ADB1] text-[#07ADB1] hover:bg-[#07ADB1] hover:text-white"
                     >
                       <Copy className="h-4 w-4" />

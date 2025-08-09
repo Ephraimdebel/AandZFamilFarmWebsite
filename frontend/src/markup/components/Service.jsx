@@ -19,8 +19,8 @@ const Service = (props) => {
               <h3>Sheep breeds and their names</h3>
               <img src={im1} alt="image" />
               <p>
-                Consectetur adipisicing elit, sed do eiusmod tempor ididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam
+                  Discover a variety of sheep breeds, each with its own unique charm, history, and story to share.
+
               </p>
             </div>
             <div className="service_contact flex items-center gap-3 mt-4">
@@ -70,57 +70,59 @@ const Service = (props) => {
 
         {/* Right Column */}
         <div className="w-full md:w-2/3">
-          <div className="org_right_service">
-            <div className="flex flex-wrap -mx-2">
-              {/* First Row */}
-              <div className="w-full md:w-1/3 px-2">
-                <div className="service_block">
-                  <img src={im2} alt="image" />
-                  <h3>Merino</h3>
-                  <p>Consectetur adipisicing elit, sed eiusmod tempor.</p>
-                </div>
-              </div>
-              <div className="w-full md:w-1/3 px-2">
-                <div className="service_block">
-                  <img src={im3} alt="image" />
-                  <h3>Norwegian</h3>
-                  <p>Consectetur adipisicing elit, sed eiusmod tempor.</p>
-                </div>
-              </div>
-              <div className="w-full md:w-1/3 px-2">
-                <div className="service_block">
-                  <img src={im4} alt="image" />
-                  <h3>Shetland</h3>
-                  <p>Consectetur adipisicing elit, sed eiusmod tempor.</p>
-                </div>
-              </div>
-            </div>
+   <div className="org_right_service">
+  <div className="flex flex-wrap -mx-2">
+    {/* First Row */}
+    <div className="w-full md:w-1/3 px-2">
+      <div className="service_block">
+        <img src={im2} alt="image" />
+        <h3>Merino</h3>
+        <p>Soft, fine wool prized for warmth and comfort.</p>
+      </div>
+    </div>
+    <div className="w-full md:w-1/3 px-2">
+      <div className="service_block">
+        <img src={im3} alt="image" />
+        <h3>Norwegian</h3>
+        <p>Durable fleece with natural warmth and texture.</p>
+      </div>
+    </div>
+    <div className="w-full md:w-1/3 px-2">
+      <div className="service_block">
+        <img src={im4} alt="image" />
+        <h3>Shetland</h3>
+        <p>Light, warm wool suited for stylish wear.</p>
+      </div>
+    </div>
+  </div>
 
-            {/* Second Row */}
-            <div className="flex flex-wrap -mx-2 mt-4">
-              <div className="w-full md:w-1/3 px-2">
-                <div className="service_block">
-                  <img src={im5} alt="image" />
-                  <h3>Masham</h3>
-                  <p>Consectetur adipisicing elit, sed eiusmod tempor.</p>
-                </div>
-              </div>
-              <div className="w-full md:w-1/3 px-2">
-                <div className="service_block">
-                  <img src={im6} alt="image" />
-                  <h3>Suffolk</h3>
-                  <p>Consectetur adipisicing elit, sed eiusmod tempor.</p>
-                </div>
-              </div>
-              <div className="w-full md:w-1/3 px-2">
-                <div className="service_block">
-                  <img src={im7} alt="image" />
-                  <h3>Gotland</h3>
-                  <p>Consectetur adipisicing elit, sed eiusmod tempor.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+  {/* Second Row */}
+  <div className="flex flex-wrap -mx-2 mt-4">
+    <div className="w-full md:w-1/3 px-2">
+      <div className="service_block">
+        <img src={im5} alt="image" />
+        <h3>Masham</h3>
+        <p>Shiny fleece ideal for smooth, soft garments.</p>
+      </div>
+    </div>
+    <div className="w-full md:w-1/3 px-2">
+      <div className="service_block">
+        <img src={im6} alt="image" />
+        <h3>Suffolk</h3>
+        <p>Dense, springy wool great for cozy clothes.</p>
+      </div>
+    </div>
+    <div className="w-full md:w-1/3 px-2">
+      <div className="service_block">
+        <img src={im7} alt="image" />
+        <h3>Gotland</h3>
+        <p>Silky curls loved for fine knitwear.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
         </div>
       </div>
     </div>

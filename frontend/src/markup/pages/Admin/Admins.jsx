@@ -66,7 +66,7 @@ import { AlertDialog, AlertDialogAction, AlertDialogContent, AlertDialogDescript
 function Admins() {
   const [users, setUser] = useState([])
   const [selectedUser, setSelectedUser] = useState(null);
-  const [isAddingAdmin, setIsAddingAdmin] = useState(false);
+  // const [isAddingAdmin, setIsAddingAdmin] = useState(false);
   const [isEditingUser, setIsEditingUser] = useState(false);
   const [isViewingUser, setIsViewingUser] = useState(false);
   const [isPromotingUser, setIsPromotingUser] = useState(false);
@@ -97,8 +97,8 @@ function Admins() {
     fetchAllUsers();
   }, []);
   // Filter users based on current tab
-  const adminUsers = users.filter((user) => user?.role === "admin");
-  const customerUsers = users.filter((user) => user?.role === "user");
+  const adminUsers = users?.filter((user) => user?.role === "admin");
+  const customerUsers = users?.filter((user) => user?.role === "user");
 
   const getCurrentUsers = () => {
     return activeTab === "admin"
@@ -134,19 +134,19 @@ function Admins() {
   };
 
 
-  const handleAddAdmin = () => {
-    if (newAdmin.name && newAdmin.email && newAdmin.role) {
-      console.log("Adding new admin:", newAdmin);
-      setNewAdmin({
-        name: "",
-        email: "",
-        phone: "",
-        role: "",
-        permissions: [],
-      });
-      setIsAddingAdmin(false);
-    }
-  };
+  // const handleAddAdmin = () => {
+  //   if (newAdmin.name && newAdmin.email && newAdmin.role) {
+  //     console.log("Adding new admin:", newAdmin);
+  //     setNewAdmin({
+  //       name: "",
+  //       email: "",
+  //       phone: "",
+  //       role: "",
+  //       permissions: [],
+  //     });
+  //     setIsAddingAdmin(false);
+  //   }
+  // };
 
   const handleUpdateUser = () => {
     console.log("Updating user:", selectedUser.id, newAdmin);
@@ -215,7 +215,7 @@ function Admins() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold tracking-tight">User Management</h1>
-        <Dialog open={isAddingAdmin} onOpenChange={setIsAddingAdmin}>
+        {/* <Dialog open={isAddingAdmin} onOpenChange={setIsAddingAdmin}>
           <DialogTrigger asChild>
             <Button>
               <Plus className="h-4 w-4 mr-2" />
@@ -292,7 +292,7 @@ function Admins() {
               <Button onClick={handleAddAdmin}>Add Admin</Button>
             </DialogFooter>
           </DialogContent>
-        </Dialog>
+        </Dialog> */}
       </div>
 
       {/* Stats Cards */}

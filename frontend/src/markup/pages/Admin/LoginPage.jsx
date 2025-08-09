@@ -3,11 +3,18 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../contexts/AuthContext";
-import { Card, CardContent, CardHeader, CardTitle } from "../../components/admin/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../../components/admin/ui/card";
 import { Input } from "../../components/admin/ui/input";
 import { Label } from "../../components/admin/ui/label";
 import { Button } from "../../components/admin/ui/button";
 import { Alert, AlertDescription } from "../../components/admin/ui/alert";
+import Navbar from "../../components/Navbar";
+import { Eye, EyeIcon, EyeOffIcon } from "lucide-react";
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
@@ -16,7 +23,7 @@ export default function LoginPage() {
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const [showPassword, setShowPassword] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -82,88 +89,122 @@ export default function LoginPage() {
       [e.target.name]: e.target.value,
     }));
   };
+  const scrollToSection = (sectionId) => {
+    // Navigate to home page with section anchor
+    navigate(`/#${sectionId}`);
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-100 px-4">
-      <div className="w-full max-w-md">
-        {/* Logo/Brand */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-brand mb-2">A&Z Family Farm</h1>
-          <p className="text-gray-600">Fresh, Local, Quality Meats</p>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-white to-gray-50">
+      <Navbar scrollToSection={scrollToSection} />
 
-        <Card className="shadow-lg border-0">
-          <CardHeader className="text-center pb-4">
-            <CardTitle className="text-2xl font-semibold text-gray-800">Welcome Back</CardTitle>
-            <p className="text-gray-600 mt-2">Sign in to place your order</p>
-          </CardHeader>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-100 px-4">
+        <div className="w-full max-w-md">
+          {/* Logo/Brand */}
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-brand mb-2">
+              A&Z Family Farm
+            </h1>
+            <p className="text-gray-600">Fresh, Local, Quality Meats</p>
+          </div>
 
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <Label htmlFor="identifier" className="text-gray-700">
-                  Email or Phone Number
-                </Label>
-                <Input
-                  id="identifier"
-                  name="identifier"
-                  type="text"
-                  value={formData.identifier}
-                  onChange={handleChange}
-                  placeholder="your@email.com or 5551234567"
-                  required
-                  className="mt-1"
-                />
-              </div>
+          <Card className="shadow-lg border-0">
+            <CardHeader className="text-center pb-4">
+              <CardTitle className="text-2xl font-semibold text-gray-800">
+                Welcome Back
+              </CardTitle>
+              <p className="text-gray-600 mt-2">Sign in for a personalized experience”</p>
+            </CardHeader>
 
-              <div>
-                <Label htmlFor="password" className="text-gray-700">
-                  Password
-                </Label>
-                <Input
-                  id="password"
-                  name="password"
-                  type="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="Enter your password"
-                  required
-                  className="mt-1"
-                />
-              </div>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <Label htmlFor="identifier" className="text-gray-700">
+                    Email or Phone Number
+                  </Label>
+                  <Input
+                    id="identifier"
+                    name="identifier"
+                    type="text"
+                    value={formData.identifier}
+                    onChange={handleChange}
+                    placeholder="your@email.com or 5551234567"
+                    required
+                    className="mt-1"
+                  />
+                </div>
 
-              {error && (
-                <Alert variant="destructive">
-                  <AlertDescription>{error}</AlertDescription>
-                </Alert>
-              )}
+                <div className="relative">
+                  <Label htmlFor="password" className="text-gray-700">
+                    Password
+                  </Label>
+                  <Input
+                    id="password"
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    value={formData.password}
+                    onChange={handleChange}
+                    placeholder="Enter your password"
+                    required
+                    className="mt-1 pr-10" // padding right for icon space
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    className="absolute right-3 top-1/2 translate-y-1 text-gray-500"
+                    tabIndex={-1}
+                    aria-label={
+                      showPassword ? "Hide password" : "Show password"
+                    }
+                  >
+                    {/* Simple SVG eye icon */}
+                    {showPassword ? (
+                      <EyeOffIcon className="h-5 w-5" />
+                    ) : (
+                      <EyeIcon className="h-5 w-5" />
+                    )}
+                  </button>
+                </div>
 
-              <Button
-                type="submit"
-                className="w-full bg-brand hover:bg-brand/90 text-white font-medium py-2.5"
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Signing In...
-                  </>
-                ) : (
-                  "Sign In"
+                {error && (
+                  <Alert
+                    variant="destructive"
+                    className="bg-red-100 border-red-500 text-red-700"
+                  >
+                    <AlertDescription>{error}</AlertDescription>
+                  </Alert>
                 )}
-              </Button>
-            </form>
 
-            <div className="mt-6 text-center">
-              <p className="text-gray-600">
-                Don't have an account?{" "}
-                <Link to="/signup" className="text-brand hover:text-brand/80 font-medium">
-                  Sign up here
-                </Link>
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+                <Button
+                  type="submit"
+                  className="w-full bg-brand hover:bg-brand/90 text-white font-medium py-2.5"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      Signing In...
+                    </>
+                  ) : (
+                    "Sign In"
+                  )}
+                </Button>
+              </form>
+
+              <div className="mt-6 text-center">
+                <p className="text-gray-600">
+                  Don't have an account?{" "}
+                  <Link
+                    to="/signup"
+                    className="text-brand hover:text-brand/80 font-medium"
+                  >
+                    Sign up here
+                  </Link>
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );

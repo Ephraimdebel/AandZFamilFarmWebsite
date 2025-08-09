@@ -8,6 +8,7 @@ import { Input } from "../../components/admin/ui/input"
 import { Label } from "../../components/admin/ui/label"
 import { Button } from "../../components/admin/ui/button"
 import { Alert, AlertDescription } from "../../components/admin/ui/alert"
+import Navbar from "../../components/Navbar"
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
@@ -95,122 +96,129 @@ export default function SignupPage() {
     }))
   }
 
+    const scrollToSection = (sectionId) => {
+    // Navigate to home page with section anchor
+    navigate(`/#${sectionId}`);
+  };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-100 px-4">
-      <div className="w-full max-w-md">
-        {/* Logo/Brand */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-brand mb-2">A&Z Family Farm</h1>
-          <p className="text-gray-600">Fresh, Local, Quality Meats</p>
-        </div>
+    <div>
+      <Navbar scrollToSection={scrollToSection} /> 
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-100 px-4">
+        <div className="w-full max-w-md">
+          {/* Logo/Brand */}
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-brand mb-2">A&Z Family Farm</h1>
+            <p className="text-gray-600">Fresh, Local, Quality Meats</p>
+          </div>
 
-        <Card className="shadow-lg border-0">
-          <CardHeader className="text-center pb-4">
-            <CardTitle className="text-2xl font-semibold text-gray-800">Create Account</CardTitle>
-            <p className="text-gray-600 mt-2">Join our farm family today</p>
-          </CardHeader>
+          <Card className="shadow-lg border-0">
+            <CardHeader className="text-center pb-4">
+              <CardTitle className="text-2xl font-semibold text-gray-800">Create Account</CardTitle>
+              <p className="text-gray-600 mt-2">Join our farm family today</p>
+            </CardHeader>
 
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <Label htmlFor="name" className="text-gray-700">
-                  Full Name
-                </Label>
-                <Input
-                  id="name"
-                  name="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="John Doe"
-                  required
-                  className="mt-1"
-                />
-              </div>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <Label htmlFor="name" className="text-gray-700">
+                    Full Name
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="John Doe"
+                    required
+                    className="mt-1"
+                  />
+                </div>
 
-              <div>
-                <Label htmlFor="identifier" className="text-gray-700">
-                  Email or Phone Number
-                </Label>
-                <Input
-                  id="identifier"
-                  name="identifier"
-                  type="text"
-                  value={formData.identifier}
-                  onChange={handleChange}
-                  placeholder="your@email.com or 5551234567"
-                  required
-                  className="mt-1"
-                />
-                <p className="text-xs text-gray-500 mt-1">
-                  Enter email or 10-digit US phone number (without +1)
+                <div>
+                  <Label htmlFor="identifier" className="text-gray-700">
+                    Email or Phone Number
+                  </Label>
+                  <Input
+                    id="identifier"
+                    name="identifier"
+                    type="text"
+                    value={formData.identifier}
+                    onChange={handleChange}
+                    placeholder="your@email.com or 5551234567"
+                    required
+                    className="mt-1"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Enter email or 10-digit US phone number (without +1)
+                  </p>
+                </div>
+
+                <div>
+                  <Label htmlFor="password" className="text-gray-700">
+                    Password
+                  </Label>
+                  <Input
+                    id="password"
+                    name="password"
+                    type="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    placeholder="Create a password"
+                    required
+                    className="mt-1"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="confirmPassword" className="text-gray-700">
+                    Confirm Password
+                  </Label>
+                  <Input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                    placeholder="Confirm your password"
+                    required
+                    className="mt-1"
+                  />
+                </div>
+
+                {error && (
+                  <Alert variant="destructive" className="bg-red-100 border-red-500 text-red-700">
+                    <AlertDescription>{error}</AlertDescription>
+                  </Alert>
+                )}
+
+                <Button
+                  type="submit"
+                  className="w-full bg-brand hover:bg-brand/90 text-white font-medium py-2.5"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      Creating Account...
+                    </>
+                  ) : (
+                    "Create Account"
+                  )}
+                </Button>
+              </form>
+
+              <div className="mt-6 text-center">
+                <p className="text-gray-600">
+                  Already have an account?{" "}
+                  <Link to="/login" className="text-brand hover:text-brand/80 font-medium">
+                    Sign in here
+                  </Link>
                 </p>
               </div>
-
-              <div>
-                <Label htmlFor="password" className="text-gray-700">
-                  Password
-                </Label>
-                <Input
-                  id="password"
-                  name="password"
-                  type="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="Create a password"
-                  required
-                  className="mt-1"
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="confirmPassword" className="text-gray-700">
-                  Confirm Password
-                </Label>
-                <Input
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  type="password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  placeholder="Confirm your password"
-                  required
-                  className="mt-1"
-                />
-              </div>
-
-              {error && (
-                <Alert variant="destructive">
-                  <AlertDescription>{error}</AlertDescription>
-                </Alert>
-              )}
-
-              <Button
-                type="submit"
-                className="w-full bg-brand hover:bg-brand/90 text-white font-medium py-2.5"
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Creating Account...
-                  </>
-                ) : (
-                  "Create Account"
-                )}
-              </Button>
-            </form>
-
-            <div className="mt-6 text-center">
-              <p className="text-gray-600">
-                Already have an account?{" "}
-                <Link to="/login" className="text-brand hover:text-brand/80 font-medium">
-                  Sign in here
-                </Link>
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   )

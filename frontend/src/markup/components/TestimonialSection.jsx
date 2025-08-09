@@ -9,17 +9,24 @@ import TestimonialCard from './TestimonialCard';
 
 const fallbackTestimonials = [
   {
-    name: "John Berg",
-    title: "Farm Specialist",
-    message: "Nsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna alierqua...",
-    image: person
-  },
-  {
-    name: "Alison Emma",
-    title: "Farm Specialist",
-    message: "Nsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna alierqua...",
-    image: person
-  }
+  name: "John Berg",
+  title: "Farm Specialist",
+  message: "The quality of the sheep and goats here is unmatched. Every order is prepared on time, and the care they take shows in every detail.",
+  image: person
+},
+{
+  name: "Alison Emma",
+  title: "Farm Specialist",
+  message: "I’ve never seen such well-kept animals and clean facilities. The service is friendly, professional, and truly reliable.",
+  image: person
+},
+{
+  name: "Michael Reed",
+  title: "Local Customer",
+  message: "From placing my order to picking it up, the process was smooth and easy. The meat was fresh, and the quality exceeded my expectations.",
+  image: person
+}
+
 ];
 
 const TestimonialSection = () => {
@@ -50,8 +57,8 @@ const TestimonialSection = () => {
               <img src={im1} alt="underline" />
             </div>
             <p>
-              Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.
+                  Hear from our happy clients who trust us for quality, care, and craftsmanship in every service we provide.
+
             </p>
           </div>
         </div>

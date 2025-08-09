@@ -35,6 +35,7 @@ import SuccessPage from "./markup/pages/Admin/SuccessPage.jsx"
 import Layout from "./markup/layout/Layout.jsx"
 import ContactInfoPage from "./markup/pages/Admin/ContactInfoPage.jsx"
 import PaymentInstructionsPage from "./markup/pages/Admin/PaymentInstructionsPage.jsx"
+import AdminRoute from "./markup/components/admin/AdminRoute.jsx"
 // import './App.css'
 function App() {
   return (
@@ -99,7 +100,9 @@ function App() {
               path="/admin"
               element={
                 <ProtectedRoute>
-                  <DashboardLayout />
+                  <AdminRoute>
+                    <DashboardLayout />
+                  </AdminRoute>
                  </ProtectedRoute>
               }
             >

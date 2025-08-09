@@ -6,6 +6,7 @@ async function getAllUsers(req, res) {
     const users = await userService.getAllUsers();
     res.status(200).json(users);
   } catch (err) {
+    console.log("here ",err)
     res.status(500).json({ error: err.message });
   }
 }
