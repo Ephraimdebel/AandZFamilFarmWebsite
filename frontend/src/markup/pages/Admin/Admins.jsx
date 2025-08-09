@@ -88,9 +88,8 @@ function Admins() {
       try {
         const response = await getAllUsers();
         setUser(response)
-        console.log(response);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
 
@@ -149,7 +148,6 @@ function Admins() {
   // };
 
   const handleUpdateUser = () => {
-    console.log("Updating user:", selectedUser.id, newAdmin);
     setIsEditingUser(false);
     setSelectedUser(null);
   };
@@ -161,7 +159,7 @@ function Admins() {
         setUser(getResponse)
       toast.success(deleteResponse?.data?.message || "deleted succefully")
     }catch(error){
-      console.log("error ",error)
+      console.error("error ",error)
     }
   };
 
@@ -182,12 +180,11 @@ function Admins() {
   const handleConfirmPromotion = async() => {
     try{
       const response = await updateUserRole(selectedUser?.id,"admin")
-      console.log(response)
        const getResponse = await getAllUsers();
         setUser(getResponse)
       toast.success(response?.data?.message || "updated succefully")
     }catch(error){
-      console.log(error)
+      console.error(error)
     }finally{
 
       setIsPromotingUser(false);

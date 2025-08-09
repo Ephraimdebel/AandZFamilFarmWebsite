@@ -39,9 +39,7 @@ export default function SignupPage() {
     e.preventDefault()
     setError("")
 
-    console.log("here me", formData)
     const { name, identifier, password, confirmPassword,role } = formData
-    console.log("formData:- ",formData)
 
     // Validate name
     if (!name.trim()) {

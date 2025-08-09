@@ -34,7 +34,7 @@ export function AuthProvider({ children }) {
   };
 
   const signup = async ( name, email, phone, password,role ) => {
-    console.log(name,email,phone,password,role)
+    // console.log(name,email,phone,password,role)
   // Prepare payload with only the fields provided
   const payload = { name, password,role };
 

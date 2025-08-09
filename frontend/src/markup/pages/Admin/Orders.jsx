@@ -114,9 +114,8 @@ function Orders() {
       toast.success("order deleted succesuly")
       
       setOrders(response?.data?.orders)
-    }catch(error){
+    }catch{
       toast.error("unable to delete order")
-      console.log(error)
     }finally{
       setOrderTodelete(null)
       setIsDeleteDialogOpen(false)

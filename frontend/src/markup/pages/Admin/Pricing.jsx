@@ -107,13 +107,11 @@ function Pricing() {
   }
 
   const handleSave = () => {
-    console.log("Saving pricing:", editForm)
     setIsEditing(false)
     setSelectedPricing(null)
   }
 
   const handleAdd = () => {
-    console.log("Adding new pricing:", editForm)
     setIsAdding(false)
     setEditForm({
       animal: "",
