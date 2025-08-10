@@ -25,6 +25,7 @@ import '../../assets/template_asset/css/font.css'
 // import '../../assets/template_asset/css/nice-select.css'
 
 import '../../assets/template_asset/css/color/color7.css'
+import Copyright from '../components/Copyright';
 
 const Home = () => {
   // const sectionsRef = useRef({});
@@ -60,6 +61,7 @@ const Home = () => {
       {/* <TestimonialSection id="testimonials" /> */}
       <PricingSection id="pricing" />
       <FooterSection />
+      <Copyright />
     </div>
   );
 };
