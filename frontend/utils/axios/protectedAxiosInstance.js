@@ -29,7 +29,7 @@ protectedAxiosInstance.interceptors.request.use(
     }
 
     // Retrieve the access token from local storage
-    const token = localStorage.getItem('user-token');
+    const token = sessionStorage.getItem('user-token');
     // If the token exists, add it to the Authorization header
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;

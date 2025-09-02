@@ -14,7 +14,7 @@ const privateAxiosInstance = axios.create({
 privateAxiosInstance.interceptors.request.use(
   (config) => {
     const token =
-      typeof window !== "undefined" ? localStorage.getItem("l_ac_i") : null;
+      typeof window !== "undefined" ? sessionStorage.getItem("l_ac_i") : null;
 
     if (token) {
       config.headers = {
