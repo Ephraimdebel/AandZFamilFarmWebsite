@@ -59,7 +59,7 @@ function Orders() {
   try {
     setLoading(true);
     setError("");
-    const response = await protectedAxios.get(`/orders?page=${page}&limit=5`);
+    const response = await protectedAxios.get(`/orders?page=${page}&limit=10`);
     setOrders(response.data.orders);
     setPagination(response.data.pagination);
   } catch (error) {

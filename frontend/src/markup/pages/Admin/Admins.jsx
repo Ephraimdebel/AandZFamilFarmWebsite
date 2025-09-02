@@ -87,7 +87,7 @@ function Admins() {
     const fetchAllUsers = async () => {
       try {
         const response = await getAllUsers();
-        console.log(response)
+        
         setUser(response)
       } catch (error) {
         console.error(error);

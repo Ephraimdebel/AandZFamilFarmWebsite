@@ -10,8 +10,8 @@ export function AuthProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem("user-token");
-    const userData = localStorage.getItem("user-data");
+    const token = sessionStorage.getItem("user-token");
+    const userData = sessionStorage.getItem("user-data");
 
     if (token && userData) {
       setUser(JSON.parse(userData));
@@ -24,8 +24,8 @@ export function AuthProvider({ children }) {
 
     if (result.success && result.token) {
       const { token, user } = result;
-      localStorage.setItem("user-token", token);
-      localStorage.setItem("user-data", JSON.stringify(user));
+      sessionStorage.setItem("user-token", token);
+      sessionStorage.setItem("user-data", JSON.stringify(user));
       setUser(user);
       return { success: true };
     }
@@ -51,8 +51,8 @@ export function AuthProvider({ children }) {
 
   if (result.success && result.token) {
     const { token, user } = result;
-    localStorage.setItem("user-token", token);
-    localStorage.setItem("user-data", JSON.stringify(user));
+    sessionStorage.setItem("user-token", token);
+    sessionStorage.setItem("user-data", JSON.stringify(user));
     setUser(user);
     return { success: true };
   }
@@ -63,8 +63,8 @@ export function AuthProvider({ children }) {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user-token");
-    localStorage.removeItem("user-data");
+    sessionStorage.removeItem("user-token");
+    sessionStorage.removeItem("user-data");
   };
 
   return (
